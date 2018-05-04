@@ -1,0 +1,280 @@
+[[scale-up-and-scale-down-and-idle-the-application-instances]]
+Scale up and Scale down and Idle the application instances
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In this exercise we will learn how to scale our application. OpenShift
+has the capability to scale your application and make sure that many
+instances are always running.
+
+*Step 1: Switch to an existing project*
+
+For this exercise, we will be using an already running application. We
+will be using the `consoleproject-UserName` that you created in the
+previous lab. Make sure you are switched to that project by using the
+`oc project` command and *remember* to substitute UserName.
+
+....
+$ oc project consoleproject-UserName
+....
+
+
+*Step 2: View the deployment config*
+
+Take a look at the `deploymentConfig` (or `dc`) of the `pricelist`
+application
+
+....
+$ oc get deploymentConfig/pricelist -o yaml
+
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: 2018-04-09T14:01:00Z
+  generation: 4
+  labels:
+    app: pricelist
+  name: pricelist
+  namespace: jimgarrett
+  resourceVersion: "127826410"
+  selfLink: /oapi/v1/namespaces/jimgarrett/deploymentconfigs/pricelist
+  uid: 6f1fcd76-3bfe-11e8-888a-02722ccca8d2
+spec:
+  replicas: 1
+  selector:
+    deploymentconfig: pricelist
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pricelist
+        deploymentconfig: pricelist
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_SERVICE_HOST
+          value: mysql
+        - name: MYSQL_SERVICE_PORT
+          value: "3306"
+        - name: MYSQL_DATABASE
+          value: pricelist
+        - name: MYSQL_USER
+          value: pricelist
+        - name: MYSQL_PASSWORD
+          value: pricelist
+        image: 172.30.245.248:5000/jimgarrett/pricelist@sha256:9e631afc00da201b73e052d2d8509be350e8d9ec8d32e4a6afe8104d49a6162d
+        imagePullPolicy: Always
+        name: pricelist
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8443
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+  test: false
+  triggers:
+  - imageChangeParams:
+      automatic: true
+      containerNames:
+      - pricelist
+      from:
+        kind: ImageStreamTag
+        name: pricelist:latest
+        namespace: jimgarrett
+      lastTriggeredImage: 172.30.245.248:5000/jimgarrett/pricelist@sha256:9e631afc00da201b73e052d2d8509be350e8d9ec8d32e4a6afe8104d49a6162d
+    type: ImageChange
+  - type: ConfigChange
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: 2018-04-09T14:01:34Z
+    lastUpdateTime: 2018-04-09T14:01:34Z
+    message: Deployment config has minimum availability.
+    status: "True"
+    type: Available
+  - lastTransitionTime: 2018-04-09T14:05:04Z
+    lastUpdateTime: 2018-04-09T14:05:05Z
+    message: replication controller "pricelist-3" successfully rolled out
+    reason: NewReplicationControllerAvailable
+    status: "True"
+    type: Progressing
+  details:
+    causes:
+    - type: ConfigChange
+    message: config change
+  latestVersion: 3
+  observedGeneration: 4
+  readyReplicas: 1
+  replicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1
+  
+  ....
+
+Note that the `replicas:` is set to `1`. This tells OpenShift that when
+this application deploys, make sure that there is 1 instance.
+
+The `replicationController` mirrors this configuration initially; the
+`replicationController` (or `rc`) will ensure that there is always the
+set number of instances always running.
+
+To view the `rc` for your application first get the current pod running.
+
+$ oc get pods
+
+NAME                READY     STATUS      RESTARTS   AGE
+mysql-1-ttvml       1/1       Running     0          57m
+pricelist-1-build   0/1       Completed   0          27m
+pricelist-3-2b489   1/1       Running     0          23m....
+
+This shows that the build `pricelist-3` is running in pod `2b489`. Let us
+view the `rc` on this build.
+
+$ oc get rc/pricelist-3
+NAME          DESIRED   CURRENT   READY     AGE
+pricelist-3   1         1         1         24m
+....
+
+*Note:* You can change the number of replicas in `DeploymentConfig` or
+the `ReplicationController`.
+
+However note that if you change the `deploymentConfig` it applies to
+your application. This means, even if you delete the current replication
+controller, the new one that gets created will be assigned the REPLICAS
+value based on what is set for DC. If you change it on the Replication
+Controller, the application will scale up. But if you happen to delete
+the current replication controller for some reason, you will loose that
+setting.
+
+*Step 3: Scale Application*
+
+To scale your application we will edit the `deploymentConfig` to 3.
+
+Open your browser to the Overview page and note you only have one
+instance running.
+
+Now scale your application using the `oc scale` command (remembering to
+specify the `dc`)
+
+....
+$ oc scale --replicas=3 dc/pricelist
+deploymentconfig "pricelist" scaled
+....
+
+If you look at the web console and you will see that there are 3
+instances running now
+
+*Note:* You can also scale up and down from the web console by going to
+the project overview page and clicking twice on
+image:images/scale_up.jpg[image] right next to the pod count circle to
+add 2 more pods.
+
+On the command line, see how many pods you are running now:
+
+....
+$ oc get pods
+
+NAME                READY     STATUS      RESTARTS   AGE
+pricelist-1-build   0/1       Completed   0          30m
+pricelist-3-2b489   1/1       Running     0          26m
+pricelist-3-kq5x8   1/1       Running     0          1m
+pricelist-3-mfrmb   1/1       Running     0          1m
+....
+
+You now have 3 instances of `pricelist-3` running (each with a different
+pod-id). If you check the `rc` of the `pricelist-3` build you will see that
+it has been updated by the `dc`.
+
+....
+$ oc get rc/pricelist-3
+
+NAME        DESIRED   CURRENT   AGE
+pricelist-3    3         3         3h
+....
+
+*Step 4: Idling the application*
+
+Run the following command to find the available endpoints
+
+....
+$ oc get endpoints
+NAME        ENDPOINTS                                           AGE
+pricelist   10.1.10.160:8080,10.1.16.190:8080,10.1.3.105:8080   32m
+....
+
+Note that the name of the endpoints is `pricelist` and there are three ips
+addresses for the three pods.
+
+Run the `oc idle endpoints/pricelist` command to idle the application
+
+....
+$ oc idle endpoints/pricelist
+The service "jimgarrett/pricelist" has been marked as idled
+The service will unidle DeploymentConfig "jimgarrett/pricelist" to 3 replicas once it receives traffic
+DeploymentConfig "jimgarrett/pricelist" has been idled
+....
+
+Go back to the webconsole. You will notice that the pods show up as
+idled.
+
+image:images/idled_pods.jpeg[image]
+
+At this point the application is idled, the pods are not running and no
+resources are being used by the application. This doesn’t mean that the
+application is deleted. The current state is just saved.. that’s all.
+
+
+*Step 6: Reactivate your application* Now click on the application route
+URL or access the application via curl.
+
+Note that it takes a little while for the application to respond. This
+is because pods are spinning up again. You can notice that in the web
+console.
+
+In a little while the output comes up and your application would be up
+with 3 pods.
+
+So, as soon as the user accesses the application, it comes up!!!
+
+*Step 7: Scaling Down*
+
+Scaling down is the same procedure as scaling up. Use the `oc scale`
+command on the `pricelist` application `dc` setting.
+
+....
+oc scale --replicas=1 dc/pricelist
+
+deploymentconfig "pricelist" scaled
+....
+
+Alternately, you can go to project overview page and click on
+image:images/scale_down.jpg[image] twice to remove 2 running pods.
+
+Congratulations!! In this exercise you have learned about scaling and
+how to scale up/down your application on OpenShift!
+
+Let's clean up your project before continuing to the next lab.
+
+$ oc delete project consoleproject-UserName
+
+link:7_Binary_Deployment_of_a_war_file.adoc[Next Lab]
+
+link:0_toc.adoc[Table Of Contents]

@@ -1,0 +1,42 @@
+[[dotnet-and-mysql-using-template]]
+== Using .Net and PostgreSQL Template
+
+:data-uri:
+
+In this lab exercise we will learn how to use OpenShift Web Console to
+spin up a MySQL database and .Net application using templates.
+We can spin up both .Net and database tier at the same time. The .Net
+application accesses this database using the service exposed by
+the database. We will provide a route (a URL) to access the frontend
+application from a browser.
+
+*Step 1: Using the browser, create a new project named dotnet-userName*
+
+*Step 2: Create a .Net application using the template*
+
+Click on *Add to Project* button and you will be taken to select an
+image or template. 
+
+Click select the '.Net Core + PostgreSQL(Persistent)' template.
+
+Click the *Next* button, then populate the following fields accordingly:
+
+....
+Name : musicstore
+Git URL: https://github.com/piggyvenus/s2i-aspnet-musicstore-ex.git
+Database Username: mysqluser
+Database Password: password
+Database Name: sampledb
+....
+Click *Next* and then click *Create*.
+
+After the build is completed, click on the route to display the application.
+
+
+
+In this lab exercise you have seen a complete web application deployed
+using OpenShift templates. We are able to deploy application via templates.
+Using template, we can capture all the information that it require to deploy
+application in one step.
+
+link:0_toc.adoc[Table of Contents]
