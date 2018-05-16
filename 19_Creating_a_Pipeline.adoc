@@ -188,16 +188,16 @@ you cloned and set up a webhook pointing to this URL.
 * Press on `Disable SSL`
 * Press on `Add Webhook`
 
-Now edit the `image.php` file to uncomment the green box and comment the
-blue box as shown below
+Now edit the `image.php` file. Go to line 6 and make a copy of the text, and 
+paste it below line 6.  Then comment out line 6, and modify line 7 to convey
+the color green.  The code would look like the text below.
 
 ....
-// Draw a filled rectangle
-//imagefilledrectangle($im, 0, 0, 199, 199, $blue);
-imagefilledrectangle($im, 0, 0, 199, 199, $green);
+//$deployment = getenv("COLOR");
+$deployment = 'green';
 ....
 
-and `Commit` changes.
+`Commit` the changes.
 
 Come back and watch the Web Console, you will notice that a new build
 has just started. Once the build completes, you will also see the
