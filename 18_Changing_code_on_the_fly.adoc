@@ -19,7 +19,7 @@ repository to your workstation.
 https://github.com/VeerMuchandi/nodejs-hello using the command:
 
 ----
-$ git clone https://github.com/VeerMuchandi/nodejs-hello
+$ git clone https://github.com/jimgarrett123/nodejs-hello.git
 ----
 
 This is a very simple nodejs application. Feel free to understand the
