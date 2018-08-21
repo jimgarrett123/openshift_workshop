@@ -4,7 +4,7 @@
 :data-uri:
 
 In this lab exercise we will learn how to use OpenShift Web Console to
-spin up a MySQL database and .Net application using templates.
+spin up a PostgreSQL database and .Net application using templates.
 We can spin up both .Net and database tier at the same time. The .Net
 application accesses this database using the service exposed by
 the database. We will provide a route (a URL) to access the frontend
@@ -24,7 +24,7 @@ Click the *Next* button, then populate the following fields accordingly:
 ....
 Name : musicstore
 Git URL: https://github.com/piggyvenus/s2i-aspnet-musicstore-ex.git
-Database Username: mysqluser
+Database Username: myuser
 Database Password: password
 Database Name: sampledb
 ....

@@ -18,12 +18,10 @@ interface (OCP CLI)
 The OCP CLI exposes commands for managing applications, as well as
 lower-level tools to interact with each component of a system. The
 binaries for Mac, Windows, and Linux are available for download from the
-Red Hat Customer Portal via the following URL.  Make sure you download the lastest/most 
-recent version of the product.
+this GitHub repository via the following URL.  Please download the file
+appropriate for your operating system.
 
-* Supported Binary from the Red Hat Portal: https://access.redhat.com/downloads/content/290
-
-image:images/cli_download.jpg[image]
+https://github.com/jimgarrett123/openshift_workshop/tree/master/CLI
 
 *Installing the CLI tools*
 
@@ -32,6 +30,7 @@ directory. In order to make it simple for any user to access the OCP
 CLI, it is recommended that it is made available in a directory mapped
 to the environment variable called `PATH` from the OS. More information
 can be found about installation process here:
+
 https://docs.openshift.com/container-platform/latest/cli_reference/get_started_cli.html
 
 1.  *OSX and Linux:*
@@ -49,7 +48,7 @@ command prompt)
 *CLI basic configuration*
 
 The easiest way to initially setup the OpenShift CLI is to use the
-`oc login` command. It’ll interactively ask you a server URL, username
+`oc login` command. It will interactively ask you a server URL, username
 and password. The information is automatically saved in a CLI
 configuration file that is then used for subsequent commands.
 
