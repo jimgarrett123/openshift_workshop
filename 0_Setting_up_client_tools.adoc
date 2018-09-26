@@ -56,7 +56,7 @@ To login to a remote server use:
 
 [source,shell]
 ----
-$ oc login <hostname>:<port>
+$ oc login https://<hostname>:<port>
 ----
 
 link:1_Create_App_From_a_Docker_Image.adoc[Next Lab]
