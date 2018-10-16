@@ -334,4 +334,4 @@ $ oc delete project myjbossapp-UserName
 
 link:5_Using_templates.adoc[Next Lab]
 
-link:0_toc.adoc[Table Of Contents]
+link:README.adoc[Table Of Contents]

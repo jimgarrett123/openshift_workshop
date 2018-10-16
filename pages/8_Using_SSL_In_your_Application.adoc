@@ -133,4 +133,4 @@ oc delete project binarydeploy-UserName
 
 link:9_Blue_Green_Deployments.adoc[Next Lab]
 
-link:0_toc.adoc[Table Of Contents]
+link:README.adoc[Table Of Contents]

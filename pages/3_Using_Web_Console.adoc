@@ -113,4 +113,4 @@ $ oc delete project mycliproject-UserName
 
 link:4_Creating_an_application_using_JBoss_EAP_builder_image.adoc[Next Lab]
 
-link:0_toc.adoc[Table Of Contents]
+link:README.adoc[Table Of Contents]

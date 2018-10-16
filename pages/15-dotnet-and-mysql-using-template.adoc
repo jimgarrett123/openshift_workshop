@@ -39,4 +39,4 @@ using OpenShift templates. We are able to deploy application via templates.
 Using template, we can capture all the information that it require to deploy
 application in one step.
 
-link:0_toc.adoc[Table of Contents]
+link:README.adoc[Table of Contents]

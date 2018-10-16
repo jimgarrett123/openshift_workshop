@@ -61,4 +61,4 @@ $ oc login https://<hostname>:<port>
 
 link:1_Create_App_From_a_Docker_Image.adoc[Next Lab]
 
-link:0_toc.adoc[Table Of Contents]
+link:README.adoc[Table Of Contents]

@@ -277,4 +277,4 @@ $ oc delete project consoleproject-UserName
 
 link:7_Binary_Deployment_of_a_war_file.adoc[Next Lab]
 
-link:0_toc.adoc[Table Of Contents]
+link:README.adoc[Table Of Contents]

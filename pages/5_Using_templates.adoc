@@ -236,4 +236,4 @@ Then click on the *Read Records* button to return to the main page, you should s
 
 link:6_Scale_up_and_Scale_down_the_application_instances.adoc[Next Lab]
 
-link:0_toc.adoc[Table Of Contents]
+link:README.adoc[Table Of Contents]

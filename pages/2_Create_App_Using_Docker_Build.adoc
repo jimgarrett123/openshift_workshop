@@ -365,4 +365,4 @@ and deploy an application using OpenShift’s `Docker Build strategy`.
 
 link:3_Using_Web_Console.adoc[Next Lab]
 
-link:0_toc.adoc[Table Of Contents]
+link:README.adoc[Table Of Contents]
