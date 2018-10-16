@@ -167,6 +167,6 @@ $ oc delete project development-UserName
 $ oc delete project testing-UserName
 ....
 
-link:18_Changing_code_on_the_fly.adoc[Next Lab]
+link:13_Changing_code_on_the_fly.adoc[Next Lab]
 
 link:0_toc.adoc[Table Of Contents]

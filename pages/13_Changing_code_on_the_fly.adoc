@@ -157,6 +157,6 @@ Let's clean up your project prior to continueing.
 
 $ oc delete project synccode-UserName
 
-link:19_Creating_a_Pipeline.adoc[Next Lab]
+link:14_Creating_a_Pipeline.adoc[Next Lab]
 
 link:0_toc.adoc[Table Of Contents]

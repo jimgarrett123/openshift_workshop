@@ -214,6 +214,6 @@ Let's clean up your project prior to continueing.
 
 $ oc delete project pipeline-UserName
 
-link:21-dotnet-and-mysql-using-template.adoc[Next Lab]
+link:15-dotnet-and-mysql-using-template.adoc[Next Lab]
 
 link:0_toc.adoc[Table Of Contents]
