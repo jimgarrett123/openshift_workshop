@@ -70,7 +70,7 @@ a new build configuration.
 image:images/blue_app.jpg[image]
 
 
-Let's clean up the project prior to continueing.
+Let's clean up the project prior to continuing.
 
 $ oc delete project scm-web-hooks-UserName
 
