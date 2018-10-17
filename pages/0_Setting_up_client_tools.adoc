@@ -21,7 +21,7 @@ binaries for Mac, Windows, and Linux are available for download from the
 this GitHub repository via the following URL.  Please download the file
 appropriate for your operating system.
 
-https://github.com/jimgarrett123/openshift_workshop/tree/master/CLI
+link:https://github.com/jimgarrett123/openshift_workshop/tree/master/CLI[https://github.com/jimgarrett123/openshift_workshop/tree/master/CLI^]
 
 *Installing the CLI tools*
 
@@ -31,7 +31,7 @@ CLI, it is recommended that it is made available in a directory mapped
 to the environment variable called `PATH` from the OS. More information
 can be found about installation process here:
 
-https://docs.openshift.com/container-platform/latest/cli_reference/get_started_cli.html
+link:https://docs.openshift.com/container-platform/latest/cli_reference/get_started_cli.html[https://docs.openshift.com/container-platform/latest/cli_reference/get_started_cli.html^]
 
 1.  *OSX and Linux:*
 +
@@ -58,6 +58,21 @@ To login to a remote server use:
 ----
 $ oc login https://<hostname>:<port>
 ----
+
+*Install GIT*
+
+Some of the labs in this workshop leverage repositories that currently reside on Github.  
+
+Prior to doing these labs you must first install the Git program onto your computer.
+
+Click on the following link and use the directions provided to install GIT on your computer.
+
+link:https://git-scm.com/book/en/v2/Getting-Started-Installing-Git[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git^]
+
+
+
+
+
 
 link:1_Create_App_From_a_Docker_Image.adoc[Next Lab]
 
