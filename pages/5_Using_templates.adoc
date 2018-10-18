@@ -91,7 +91,7 @@ TIP: If you need service ip address navigate to *Applications->Services* tab on 
 
 [source,sh]
 ----
-mysql -h127.0.0.1 -P3306 -upricelist
+mysql -h127.0.0.1 -P3306 -upricelist -p
 ----
 
 You will be taken to the `mysql` prompt. See the list of databases. You
