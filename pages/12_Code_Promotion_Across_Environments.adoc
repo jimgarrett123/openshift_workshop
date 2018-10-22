@@ -96,7 +96,7 @@ to Testing. Let us tag this docker image using the `oc tag` command.
 The format is
 
 ....
-oc tag FullImageId development-UserName/myapp:promote-qa
+oc tag FullImageId development-UserName/welcome-php:promote-qa
 ....
 
 Check the following commands and replace the values where needed:
