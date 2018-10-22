@@ -120,7 +120,9 @@ status:
 
 *Step 4: Verify*
 
-Verify by visiting your page by using the `https://` URI
+The Route for the application should now reflect the SSL connection (i.e. https verses http in the link).
+
+Please click on the new Route and verify the new Route works as expected.
 
 Congratulations!! In this exercise you have learned about service SSL
 from your application
