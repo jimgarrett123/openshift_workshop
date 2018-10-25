@@ -87,8 +87,9 @@ latest
 
 ....
 
-In this case, the full image Id is
-`docker-registry.default.svc:5000/development-UserName/welcome-php@sha256:157334d73dfc8dfdf733257b05c3fecaee236d36f69afa207395715fbe882abf`
+In this case, the full image Id is:
+
+*development-UserName/welcome-php@sha256:157334d73dfc8dfdf733257b05c3fecaee236d36f69afa207395715fbe882abf*
 
 Now let us assume that this docker image is good and is ready to promote
 to Testing. Let us tag this docker image using the `oc tag` command.
@@ -102,9 +103,7 @@ oc tag FullImageId development-UserName/welcome-php:promote-qa
 Check the following commands and replace the values where needed:
 
 ....
-$ oc tag \
-docker-registry.default.svc:5000/development-UserName/welcome-php@sha256:157334d73dfc8dfdf733257b05c3fecaee236d36f69afa207395715fbe882abf \
-development-UserName/welcome-php:promote-qa
+$ oc tag development-UserName/welcome-php@sha256:157334d73dfc8dfdf733257b05c3fecaee236d36f69afa207395715fbe882abf development-UserName/welcome-php:promote-qa
 
 Tag welcome-php:promote-qa set to docker-registry.default.svc:5000/development-UserName/welcome-php@sha256:157334d73dfc8dfdf733257b05c3fecaee236d36f69afa207395715fbe882abf.
 
