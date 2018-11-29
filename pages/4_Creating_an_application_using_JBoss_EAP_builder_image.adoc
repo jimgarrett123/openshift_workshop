@@ -301,6 +301,14 @@ route "ks" exposed
 
 And now we can check the route uri.
 
+....
+$ oc get route
+
+NAME      HOST/PORT                                             PATH      SERVICES   PORT      TERMINATION   WILDCARD
+ks        ks-myjbossapp.apps.cbtss-bce5.openshiftworkshop.com             ks         <all>                   None
+
+....
+
 *Step 6: Run the application*
 
 Now access the application by using the route you got in the previous
