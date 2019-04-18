@@ -14,7 +14,7 @@ Applications.
 *Remember* to replace the username before running the command.
 
 ....
-$ oc new-project myjbossapp-UserName --display-name="My JBoss Applications" --description="A place for my JBoss EAP Applications"
+$ oc new-project myjbossapp-<your-username> --display-name="My JBoss Applications" --description="A place for my JBoss EAP Applications"
 ....
 
 
@@ -49,6 +49,7 @@ Give it some time and you will see OpenShift starts the build process
 for you. You can view the list of builds using `oc get builds` command.
 
 ....
+$ oc project myjbossapp-<your-username>
 $ oc get builds
 
 NAME      TYPE      FROM          STATUS     STARTED         DURATION

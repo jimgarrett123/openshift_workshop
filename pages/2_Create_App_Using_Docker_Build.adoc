@@ -345,7 +345,7 @@ And then we check the route exposed.
 ....
 $ oc get routes
 NAME      HOST/PORT                                          PATH      SERVICES   PORT       TERMINATION   WILDCARD
-time      time-jimgarrett.apps.rhpds.openshift.opentlc.com             time       8080-tcp                 None
+time      <your_route>             time       8080-tcp                 None
 ....
 
 *Step 6: Run the application*
@@ -356,7 +356,7 @@ time. *If you don’t provide time.php extension, it displays apache’s
 default index page.*
 
 ....
-$ curl http://time-jimgarrett.apps.rhpds.openshift.opentlc.com
+$ curl http://<your_route>
 Wednesday 1st of July 2015 01:12:20 AM
 ....
 
