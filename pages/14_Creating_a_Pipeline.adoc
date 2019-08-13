@@ -79,7 +79,7 @@ Now you will be taken to Jenkins console (that is running on OpenShift).
 
 *Step 3:* Understand the pipeline
 
-Using left menu on the Web Console, select `Builds`->`Pipelines`. You
+Using left menu on the OpenShift Web Console, select `Builds`->`Pipelines`. You
 will see that `myfirstpipeline` is created. Click on that.
 
 Since we haven't run the pipeline yet, the `History` tab shows nothing.
