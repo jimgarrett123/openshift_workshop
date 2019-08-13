@@ -215,7 +215,7 @@ application with a green rectangle.
 Part III
 ~~~~~~~
 
-You can route traffic to both services. This is also known as "cannary in a colemine". 
+You can route traffic to both services. This is also known as a "canary in a coalmine". 
 
 *Step 1: Edit Your Route*
 Using the lefthand side navigation; click on *Applications -> Routes*. This will 
