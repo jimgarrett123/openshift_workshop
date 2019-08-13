@@ -270,7 +270,7 @@ concurrently, each with a unique service.
 service being used by the route to publicly advertise the application.
 * You can split traffic accross two services
 
-Let's clean up the project prior to continueing.
+Let's clean up the project prior to continuing.
 
 $ oc delete project bluegreen-UserName
 
