@@ -41,13 +41,14 @@ $ oc new-project bluegreen-UserName --display-name="Blue Green Project" --descri
 
 
 *Step 2: List existing image builder or image streams*
-
+....
 $ oc new-app -S --image-stream=php
 
 Image streams (oc new-app --image-stream=<image-stream> [--code=<source>])
 php
   Project: openshift
-  Tags:    5.5, 5.6, latest
+  Tags:    7.0, 7.1, latest
+....
 
 *Step 3: Create an application*
 
@@ -214,7 +215,7 @@ application with a green rectangle.
 Part III
 ~~~~~~~
 
-You can route traffic to both services. This is also known as "cannary in a colemine". 
+You can route traffic to both services. This is also known as a "canary in a coalmine". 
 
 *Step 1: Edit Your Route*
 Using the lefthand side navigation; click on *Applications -> Routes*. This will 
@@ -269,7 +270,7 @@ concurrently, each with a unique service.
 service being used by the route to publicly advertise the application.
 * You can split traffic accross two services
 
-Let's clean up the project prior to continueing.
+Let's clean up the project prior to continuing.
 
 $ oc delete project bluegreen-UserName
 

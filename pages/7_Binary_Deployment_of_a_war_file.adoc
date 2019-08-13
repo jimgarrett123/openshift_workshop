@@ -35,7 +35,7 @@ renamed to `ROOT.war` and placed in the deployments folder (you can
 download this example WAR file
 https://raw.githubusercontent.com/RedHatWorkshops/ps/master/deployments/ROOT.war[here]).
 
-$ wget https://raw.githubusercontent.com/RedHatWorkshops/ps/master/deployments/ROOT.war
+$ curl https://raw.githubusercontent.com/RedHatWorkshops/ps/master/deployments/ROOT.war -o ROOT.war
 
 ....
 $ ls -lR

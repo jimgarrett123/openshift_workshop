@@ -49,7 +49,7 @@ Click the "*Next*" button
 
 On the "*Binding*" page click the *Create* button.
 
-Naviagete back to the project overview page and soon you will see
+Navigate back to the project overview page and soon you will see
 an image of a running pod.
 
 image:images/mysql_pod_on_proj_overview.png[image]
@@ -91,7 +91,7 @@ TIP: If you need service ip address navigate to *Applications->Services* tab on 
 
 [source,sh]
 ----
-mysql -h127.0.0.1 -P3306 -upricelist -p
+mysql -h127.0.0.1 -P3306 -u pricelist -p
 ----
 
 You will be taken to the `mysql` prompt. See the list of databases. You
@@ -222,7 +222,7 @@ deployment is complete, the frontend pod starts running.
 
 Prior to testing the application we need to first define some Environment Variables.
 
-From the Project page navigate to the 'pricelist' configuration page by clicking on the 'pricelist' project.
+From the Project page navigate to the 'pricelist' configuration page by clicking on the 'pricelist' deployment config.
 
 Click on the Environment tab to see a list of environment variables.
 
