@@ -30,7 +30,7 @@ Open the browser and select your project *<your_project_name>*.
 Click into *Add to Project->Browse Catalog* button.
 
 In the search text box type `eap` and select the
-'JBoss EAP 7.0(no https)' for this builder image.
+'JBoss EAP 7.1(no https)' for this builder image.
 
 Fill the fields with the following information:
 
