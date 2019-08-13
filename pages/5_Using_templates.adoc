@@ -222,7 +222,7 @@ deployment is complete, the frontend pod starts running.
 
 Prior to testing the application we need to first define some Environment Variables.
 
-From the Project page navigate to the 'pricelist' configuration page by clicking on the 'pricelist' project.
+From the Project page navigate to the 'pricelist' configuration page by clicking on the 'pricelist' deployment config.
 
 Click on the Environment tab to see a list of environment variables.
 
