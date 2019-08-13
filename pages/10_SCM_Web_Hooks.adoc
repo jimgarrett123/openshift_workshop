@@ -176,9 +176,10 @@ image:images/github_add_webhook.jpg[image]
 * Make a copy of this line, then comment the original line 6.
 * In the new copy of line 6 set its value to 'green', then save the file.
 
+....
 //$deployment = getenv("COLOR");
 $deployment = 'green';
-
+....
 
 * Commit the file.
 
