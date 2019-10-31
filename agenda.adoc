@@ -1,4 +1,4 @@
-*OVERVIEW*
+[red]*OVERVIEW*
 ~~~~~~~~~~~
 
 Containers have revolutionized the DevOps process, transforming how organizations build, ship, and run applications on any infrastructure.
@@ -7,11 +7,11 @@ OpenShift Container Platform is an enterprise container application platform bas
 
 In this workshop, we will discuss how containers solve many of the challenges for development and operations. We will show you how to start taking advantage of the cloud, without rewriting all of your existing applications. We will demonstrate how OpenShift can improve speed, scalability, security, innovation and cost to your IT organization.
 
-*TARGET AUDIENCE*
+[red]*TARGET AUDIENCE*
 ~~~~~~~~~~~~~~~~~
 This workshop is recommended for developers, operations and technical leaders who are interested in learning more about the benefits of using the OpenShift Container Platform.
 
-*HIGHLIGHTS*
+[red]*HIGHLIGHTS*
 ~~~~~~~~~~~~
 
  * Discover why customers are running OpenShift
