@@ -6,6 +6,7 @@ OpenShift V3 Workshop Labs
 Lab Exercises Table of Contents
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+* link:agenda.adoc[Agenda]
 * Lab 0. link:pages/0_Setting_up_client_tools.adoc[Setting up client tools]
 * Lab 1. link:pages/1_Create_App_From_a_Docker_Image.adoc[Creating an application from an existing Docker Image using CLI]
 * Lab 2. link:pages/2_Create_App_Using_Docker_Build.adoc[Create an application using Docker Build Strategy using CLI]
@@ -22,3 +23,5 @@ Lab Exercises Table of Contents
 * Lab 13. link:pages/13_Changing_code_on_the_fly.adoc[Changing code on the fly]
 * Lab 14. link:pages/14_Creating_a_Pipeline.adoc[Creating a CI/CD Pipeline]
 * Lab 15. link:pages/15-dotnet-and-mysql-using-template.adoc[Dot Net and PostgreSql using a Template]
+
+
