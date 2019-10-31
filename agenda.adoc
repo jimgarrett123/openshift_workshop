@@ -1,4 +1,5 @@
-[red]*OVERVIEW*
+*OVERVIEW*
+[red]~~~~~~~~~~~
 
 Containers have revolutionized the DevOps process, transforming how organizations build, ship, and run applications on any infrastructure.
 
