@@ -326,8 +326,8 @@ $ curl http://ks-myjbossapp.apps.cbtss-bce5.openshiftworkshop.com
 </html>
 ....
 
-Go to http://ks-<your_project_name>.apps.rhpds.openshift.opentlc.com/ via your browser.
-Please replace your username with yours.
+Go to http://ks-myjbossapp.apps.cbtss-bce5.openshiftworkshop.com via your browser.
+Please replace with the route associated with your application.
 
 image:images/ks-myjbossapp.png[image]
 
