@@ -27,10 +27,22 @@ assemble our application.
 
 Open the browser and select your project *<your_project_name>*.
 
-Click into *Add to Project->Browse Catalog* button.
+In the upper left corner click on the triangle next to *Administrator*, then select the *Developer* option.
 
-In the search text box type `eap` and select the
-'JBoss EAP 7.0(no https)' for this builder image.
+image:images/developer.png[developer.png]
+
+The *Developer* panel should display on the right.  In this panel you'll see a variety of ways to add images to the project.  Click on the *From Catalog* option.
+
+image:images/from_catalog.png[from_catalog.png]
+
+
+In the *Filter by keyword* box type `eap` and select the
+'JBoss EAP 7.2' for this builder image.
+
+image:images/jboss_eap_72.png[from_catalog.png]
+
+Click on the *Instantiate Template* button.
+
 
 Fill the fields with the following information:
 
@@ -41,7 +53,7 @@ Git Reference: master
 Context Directory: .
 ....
 
-Click on *Next* and then click *Create*.
+Click on *Create*.
 
 *Step 3: Build*
 
@@ -71,7 +83,7 @@ ks-1-build   1/1       Running   0          11m
 We can check the logs by executing the following command:
 
 ....
-$ oc logs pod/ks-1-build
+$ oc logs -f pod/ks-1-build
 
 
 [INFO]
@@ -341,6 +353,6 @@ From the command line type the following:
 
 $ oc delete project myjbossapp-UserName
 
-link:5_Using_templates.adoc[Next Lab]
+link:7_Binary_Deployment_of_a_war_file.adoc[Next Lab]
 
 link:README.adoc[Table Of Contents]

@@ -21,7 +21,7 @@ binaries for Mac, Windows, and Linux are available for download from the
 this GitHub repository via the following URL.  Please download the file
 appropriate for your operating system.
 
-link:https://github.com/jimgarrett123/openshift_workshop/tree/master/CLI[https://github.com/jimgarrett123/openshift_workshop/tree/master/CLI^]
+link:https://github.com/jimgarrett123/openshift_workshop/tree/ocp-4.2/CLI[https://github.com/jimgarrett123/openshift_workshop/tree/master/CLI^]
 
 *Installing the CLI tools*
 
@@ -58,7 +58,7 @@ $ oc login https://<hostname>:<port>
 
 *Install GIT*
 
-Some of the labs in this workshop leverage repositories that currently reside on Github.  
+Some of the labs in this workshop leverage repositories that currently reside on Github.
 
 Prior to doing these labs you must first install the Git program onto your computer.
 

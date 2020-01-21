@@ -93,7 +93,7 @@ build "myapp-1" started
 You can check the build logs by executing:
 
 ....
-$ oc logs myapp-1-build
+$ oc logs -f myapp-1-build
 
 Receiving source from STDIN as archive ...
 
@@ -153,6 +153,13 @@ route "myapp" exposed
 ....
 
 You can use the route to access the application using the URL.
+
+....
+$ oc get routes
+myapp   myapp-binarydeploy-user1.apps.cluster-bcbsma-f924.bcbsma-f924.example.opentlc.com          myapp      8080-tcp                 None
+....
+
+Use the route in a web browser to display the page.
 
 link:8_Using_SSL_In_your_Application.adoc[Next Lab]
 

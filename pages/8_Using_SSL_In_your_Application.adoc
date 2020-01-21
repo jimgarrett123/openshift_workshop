@@ -133,6 +133,6 @@ Let's clean up the project.
 oc delete project binarydeploy-UserName
 ....
 
-link:9_Blue_Green_Deployments.adoc[Next Lab]
+link:10_SCM_Web_Hooks.adoc[Next Lab]
 
 link:README.adoc[Table Of Contents]

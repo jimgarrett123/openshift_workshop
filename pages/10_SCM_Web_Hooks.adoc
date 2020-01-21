@@ -27,7 +27,7 @@ $ oc new-project scm-web-hooks-UserName --display-name="Test WebHooks"
 
 *Step 2: Create new application*
 
-* In the previous lab we used a github repository containing the bluegreen application.  
+* In the previous lab we used a github repository containing the bluegreen application.
 For this lab we'll want to first "fork" that repository so we can make changes to the code.
 
 From a web browser, navigate to https://github.com/RedHatWorkshops/bluegreen
@@ -86,7 +86,7 @@ scm-web-hooks-1   Source    Running   scm-web-hooks-1-build
 * Monitor the build
 
 ....
-$ oc logs build/scm-web-hooks-1
+$ oc logs -f build/scm-web-hooks-1
 ....
 
 The build should finish similar to:
@@ -148,11 +148,9 @@ In this part of the Lab we will:
 *Builds*.
 * Click onto the build name from the list. You should have just one in
 this case.
-* Click *Configuration* tab to get list of *Triggers* for the GitHub
-link.
-* Copy the *GitHub webhook URL*. You will need this URL for next step.
+* Scroll to the bottom and you should see two entries in the *Webhooks* section
+* For the *GitHub* click on the *Copy URL with Secret" link. You will need this URL for next step.
 
-image:images/github_show_url.png[image]
 
 *Step 2: Configure GitHub repository Web Hook*
 

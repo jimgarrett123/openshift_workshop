@@ -75,7 +75,7 @@ blue-1    Source    Git@afdc492   Complete   About a minute ago   1m8s
 Using the build name of the recently created application run:
 
 ....
-$ oc logs build/blue-1
+$ oc logs -f build/blue-1
 ....
 
 Once the build finishes you should see something similar to:
@@ -214,10 +214,10 @@ application with a green rectangle.
 Part III
 ~~~~~~~
 
-You can route traffic to both services. This is also known as "cannary in a colemine". 
+You can route traffic to both services. This is also known as "cannary in a colemine".
 
 *Step 1: Edit Your Route*
-Using the lefthand side navigation; click on *Applications -> Routes*. This will 
+Using the lefthand side navigation; click on *Applications -> Routes*. This will
 bring you to the `Route` overview page.
 
 image:images/bg-routes-page.png[image]
