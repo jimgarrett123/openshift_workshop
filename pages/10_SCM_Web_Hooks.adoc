@@ -145,7 +145,7 @@ In this part of the Lab we will:
 *Step 1: Retrieve the OpenShift Web Hook URL*
 
 * From inside a web browser, navigate to your project and then click *Builds* and then
-*Builds*.
+*Build Configs*.
 * Click onto the build name from the list. You should have just one in
 this case.
 * Scroll to the bottom and you should see two entries in the *Webhooks* section
