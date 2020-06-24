@@ -353,6 +353,6 @@ From the command line type the following:
 
 $ oc delete project myjbossapp-UserName
 
-link:7_Binary_Deployment_of_a_war_file.adoc[Next Lab]
+link:5_Using_templates.adoc[Next Lab]
 
 link:README.adoc[Table Of Contents]
