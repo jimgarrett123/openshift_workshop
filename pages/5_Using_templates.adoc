@@ -3,7 +3,7 @@ Using Templates
 ~~~~~~~~~~~~~~~
 
 In this lab exercise we will learn how to use OpenShift Web Console to
-spin up a MySQL database using templates. We will then add a frontend
+spin up a mariadb database using templates. We will then add a frontend
 PHP application that accesses this database using the service exposed by
 the database. We will provide a route (a URL) to access the frontend
 application from a browser.
@@ -11,7 +11,7 @@ application from a browser.
 *Step 1: Create a Project*
 
 Based on the experience gained from the previous exercise, log into the
-OpenShift Web Console. You will see the list of Projects.
+OpenShift Web Console. Click on the  *Home* tab and select the *Projects* subtab.  You will see the list of Projects.
 
 Using the *Create Project* button, create a new project. We will call it
 *consoleproject-UserName*. Replace by your username to make this project
@@ -20,41 +20,34 @@ unique. Type in a *Display Name* and *Description* of your choice.
 Press the *Create* button to complete the project creation from the Web
 Console. This will accomplish the same job as `oc new-project` from CLI.
 
-*Step 2: Create a MYSQL database using the template*
+Next click on the *Administrator* menu and select the *Developer* option.
 
-Click on *Add to Project -> Browse Catolog* button
+*Step 2: Create a MariaDB database using the template*
 
-In the "*Search Catalog*" field type '*mysql*'
+Click on *Topology -> From Catolog* button
 
-Find *MySQL* template from the list and click *Select*. 
-You will also notice *MySQL (Persistent)* template. But we will address 
-that in a different lab exercise.
+In the "*Filter by keyword*" field type '*mariadb*'
 
-On the "*Information*" page, click the "*Next*" button.
+Find *MariaDB (Ephemeral)* template from the list and click *Select*.
 
-You will be taken to the mysql ephemeral creation screen. 
+Click the *Instantiate Template* button
 
 Edit the values to use the following values:
 
 ....
-Database Service Name:     mysql
-MySQL Connection Username: pricelist
-MySQL Connection Password: pricelist
-MySQL root user Password:  pricelist
-MySQL Database Name:       pricelist
+Database Service Name:     mariadb
+MariaDB Connection Username: pricelist
+MariaDB Connection Password: pricelist
+MariaDB root user Password:  pricelist
+MariaDB Database Name:       pricelist
 ....
 
-Click the "*Next*" button
+Click the "*Create*" button
 
-
-On the "*Binding*" page click the *Create* button.
-
-Naviagete back to the project overview page and soon you will see
+Naviagete back to the *Toplogy* page and soon you will see
 an image of a running pod.
 
-image:images/mysql_pod_on_proj_overview.png[image]
-
-*Step 3: Add data to MySQL database*
+*Step 3: Add data to MaraiaDB database*
 
 Let us see how we can enter the pod and access the database.
 
@@ -71,36 +64,31 @@ Based on what you learned previously get the list of running pods by running:
 $ oc get pods
 ----
 
-You will find one pod for mysql running. Take a note of it's name.
+You will find one pod for mariadb running. Take a note of it's name.
 
 Enter the pod by running the following command. Substitute the pod name
-with your mysql pod name.
+with your mariadb pod name.
 
 ----
-$ oc rsh mysql-1-aewve
+$ oc rsh mariadb-1-x8hpk
 
 bash-4.2$
 ----
 
-You will be taken to a bash prompt inside the running pod. Now using the
-service ip address you noted earlier, port number, username and password
-you used start the mysql client as shown below. You will have to
-substitute your values here.
-
-TIP: If you need service ip address navigate to *Applications->Services* tab on the Web Console.
+You will be taken to a bash prompt inside the running pod.
 
 [source,sh]
 ----
-mysql -h127.0.0.1 -P3306 -upricelist -p
+mariadb -h127.0.0.1 -P3306 -upricelist -p
 ----
 
-You will be taken to the `mysql` prompt. See the list of databases. You
+You will be taken to the `MariaDB` prompt. See the list of databases. You
 will notice that the sample database that you requested is added and
 available.
 
 [source,sh]
 ----
-mysql> show databases;
+mariadb> show databases;
 +--------------------+
 | Database           |
 +--------------------+
@@ -114,7 +102,7 @@ Change over to use the `pricelist` database.
 
 [source,sh]
 ----
-mysql> use pricelist;
+mariadb> use pricelist;
 Database changed
 ----
 
@@ -134,7 +122,7 @@ created datetime NOT NULL,
 modified timestamp NOT NULL default CURRENT_TIMESTAMP,
 PRIMARY KEY  (id)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
-                            
+
 create table categories (
 id int(11) NOT NULL auto_increment,
 name varchar(256) NOT NULL,
@@ -162,7 +150,7 @@ Verify that the records you added are there:
 select * from categories;
 ----
 
-Now `exit` MySQL client and `exit` out of the pod.
+Now `exit` mariadb client and `exit` out of the pod.
 
 *Step 4: Add a PHP frontend to talk to this database*
 
@@ -173,8 +161,11 @@ https://github.com/RedHatWorkshops/php-pricelist
 Browse through the code in this repository. If you take a look at the
 link:https://raw.githubusercontent.com/RedHatWorkshops/php-pricelist/master/config/database.php[database configuration] file (`config/database.php`) you will see that it reads the values from environment varables.
 
-To add a new application click on *Add to Project*. It takes you to
-Search Catalog page where you choose the *PHP* template.
+To add a new application click on *+Add* in the upper left corner of the console window.
+
+Next click on the "From Catalog" button.
+
+In the *Filter by keyword* field type *PHP*, then select the one titled *PHP*
 
 image:images/php.png[image]
 
@@ -185,17 +176,29 @@ Enter the following values for each parameters:
 * Git Repository URL: https://github.com/RedHatWorkshops/php-pricelist
 ....
 
+At the bottom of the page, in the *Advanced Options* section, click on *Build Configuration*.
+
+On the Build Configuration page add the following *Environment Variables* to the application:
+
+Add the following Environment variables to the application:
+
+....
+MYSQL_SERVICE_HOST : mariadb
+MYSQL_SERVICE_PORT : 3306
+MYSQL_DATABASE     : pricelist
+MYSQL_USER         : pricelist
+MYSQL_PASSWORD     : pricelist
+....
+
 
 Click *Create* to add this application.
 
-Navigate back to the Project Overview page and you will 
+Navigate back to the *Topology* page and you will
 see the new service is now available and exposed as a route.
 
 You will also notice that a build starts running very soon. Once the
 build completes, the application image created from the source code will
 be uploaded to the docker repository.
-
-image:images/console_project_overview.png[image]
 
 You can check the build logs using the following command:
 
@@ -218,29 +221,7 @@ Push successful
 ....
 
 Once the build completes, OpenShift initiates a deploy process. Once the
-deployment is complete, the frontend pod starts running. 
-
-Prior to testing the application we need to first define some Environment Variables.
-
-From the Project page navigate to the 'pricelist' configuration page by clicking on the 'pricelist' project.
-
-Click on the Environment tab to see a list of environment variables.
-
-Add the following Environment variables to the application:
-
-....
-MYSQL_SERVICE_HOST : mysql
-MYSQL_SERVICE_PORT : 3306
-MYSQL_DATABASE     : pricelist
-MYSQL_USER         : pricelist
-MYSQL_PASSWORD     : pricelist
-....
-
-Then click the "Save" button to commit the variables.
-
-Next navigate back to the Project page by clicking the "Overview" link on the left.
-
-The Pricelist application will redeploy after changing the Environment variables.  
+deployment is complete, the frontend pod starts running.
 
 When complete click on the *Route* for the application.
 
@@ -248,6 +229,6 @@ The application should display in the Browser.  Click the *+Create Record* butto
 
 Then click on the *Read Records* button to return to the main page, you should see your new record.
 
-link:6_Scale_up_and_Scale_down_the_application_instances.adoc[Next Lab]
+link:7_Binary_Deployment_of_a_war_file.adoc[Next Lab]
 
 link:README.adoc[Table Of Contents]
