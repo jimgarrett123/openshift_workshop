@@ -176,7 +176,7 @@ Enter the following values for each parameters:
 * Git Repository URL: https://github.com/RedHatWorkshops/php-pricelist
 ....
 
-At the bottom of the page, in the *Advanced Options* section, click on *Build Configuration*.
+At the bottom of the page, in the *Advanced Options* section, click on *Deployment*.
 
 On the Build Configuration page add the following *Environment Variables* to the application:
 
