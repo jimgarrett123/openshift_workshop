@@ -79,7 +79,7 @@ You will be taken to a bash prompt inside the running pod.
 
 [source,sh]
 ----
-mariadb -h127.0.0.1 -P3306 -upricelist -p
+mysql -h127.0.0.1 -P3306 -upricelist -p
 ----
 
 You will be taken to the `MariaDB` prompt. See the list of databases. You
